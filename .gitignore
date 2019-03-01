@@ -1,0 +1,14 @@
+#ignore everyhting
+/*
+
+#except...
+!/WSL_Arch/
+/WSL_Arch/*
+!/WSL_Arch/wsl-con.cmd
+!/.config/
+/.config/*
+!/.config/powerline/
+!.gitignore
+!.bashrc
+!.zshrc
+!.tmux.conf
