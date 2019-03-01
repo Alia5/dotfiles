@@ -87,5 +87,5 @@ source  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 export PATH="$PATH:$HOME/.rvm/bin"
 
 #neofetch
-screenfetch -c 9
+screenfetch -c 9,7
  
