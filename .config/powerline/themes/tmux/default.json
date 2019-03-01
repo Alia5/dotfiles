@@ -14,10 +14,6 @@
 				"priority": 50
 			},
 			{
-				"function": "powerline.segments.common.bat.battery",
-				"priority": 50
-			},
-			{
 				"function": "powerline.segments.common.time.date"
 			},
 			{
