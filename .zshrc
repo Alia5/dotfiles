@@ -76,11 +76,40 @@ source "$HOME/.vfbashrc"
             #fi
           fi
 
+## History file configuration
+[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=10000
+
+## History command configuration
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt inc_append_history     # add commands to HISTFILE in order of execution
+setopt share_history          # share command history data
+
+
 bindkey -e
 bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
+bindkey "^[[1;5D" backward-word 
+
+# enable Ctrl-x-e to edit command line ---------------------
+
+autoload -U edit-command-line
+zle -N edit-command-line
+# Emacs style
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+# Vi style:
+bindkey -M vicmd v edit-command-line
+
+
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh         
-	 powerline-daemon -q
+
+powerline-daemon -q 
 . /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh 
 source  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
