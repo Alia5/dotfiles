@@ -8,6 +8,7 @@
 !/.config/
 /.config/*
 !/.config/powerline/
+!/.config/colorls/
 !.gitignore
 !.bashrc
 !.zshrc
