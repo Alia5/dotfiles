@@ -26,7 +26,7 @@ alias gds='git diff --staged'
 alias gl='git log --all --decorate --oneline --graph'
 
 
-alias pacman='pacman --color=auto'
+alias pacman='sudo pacman --color=auto'
 
 alias catc='highlight'
 
