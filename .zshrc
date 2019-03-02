@@ -76,20 +76,9 @@ source "$HOME/.vfbashrc"
             #fi
           fi
 
-## History file configuration
-[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
-HISTSIZE=50000
-SAVEHIST=10000
+eval "$(dircolors)"
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-## History command configuration
-setopt extended_history       # record timestamp of command in HISTFILE
-setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
-setopt hist_ignore_dups       # ignore duplicated commands history list
-setopt hist_ignore_space      # ignore commands that start with space
-setopt hist_verify            # show command with history expansion to user before running it
-setopt inc_append_history     # add commands to HISTFILE in order of execution
-setopt share_history          # share command history data
-setopt no_hist_verify
 
 bindkey -e
 bindkey "^[[1;5C" forward-word
@@ -105,6 +94,10 @@ bindkey '^x^e' edit-command-line
 # Vi style:
 bindkey -M vicmd v edit-command-line
 
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+autoload -Uz compinit
+compinit
+
 
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh         
@@ -117,4 +110,20 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 #neofetch
 screenfetch -c 9,7
- 
+
+## History file configuration
+[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=10000
+
+## History command configuration
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt inc_append_history     # add commands to HISTFILE in order of execution
+setopt share_history          # share command history data
+setopt no_hist_verify
+
+
