@@ -14,3 +14,9 @@
 !.zshrc
 !.tmux.conf
 !.vimrc
+!.irbrc
+!/.rvm/
+/.rvm/*
+!/.rvm/gemsets/
+/.rvm/gemsets/*
+!/.rvm/gemsets/global.gems
