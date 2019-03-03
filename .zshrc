@@ -56,6 +56,7 @@ export XDG_CONFIG_HOME=~/.config
 export DISPLAY=:0.0
 export LIBGL_ALWAYS_INDIRECT=1
 export $(dbus-launch)
+export PULSE_SERVER=tcp:localhost
 #export QT_SCALE_FACTOR=1.5
 #export GDK_SCALE=1.5
 
