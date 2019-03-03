@@ -42,7 +42,7 @@ alias canadiansudo='echo "please"'
 alias pikaur='HOME=/home/alia5 pikaur'
 
 
-export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
 eval $(thefuck --alias)
