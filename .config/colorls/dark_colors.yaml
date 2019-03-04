@@ -1,7 +1,7 @@
 # Main Colors
-unrecognized_file: goldenrod
-recognized_file:   greenyellow
-dir:               indianred
+unrecognized_file: coral
+recognized_file:   green
+dir:               cyan
 
 # Link
 dead_link: red
