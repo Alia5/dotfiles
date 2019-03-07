@@ -15,6 +15,7 @@
 !.tmux.conf
 !.vimrc
 !.irbrc
+!.etc.wsl.conf
 !/.rvm/
 /.rvm/*
 !/.rvm/gemsets/
