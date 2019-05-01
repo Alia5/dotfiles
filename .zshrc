@@ -62,10 +62,6 @@ export PULSE_SERVER=tcp:localhost
 
 export EDITOR=vim
 
-#vuframe
-source "$HOME/.vfbashrc"
-#\vuframe
-
 
           # Adding wsl-open as a browser for Bash for Windows
           if [[ $(uname -r) == *Microsoft ]]; then
