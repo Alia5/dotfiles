@@ -6,11 +6,11 @@ alias lla='ls -Al'
 alias lal='ls -Al'
 alias la='ls -A'
 alias grep='grep --color=auto'
-alias reboot='/C/Windows/System32/shutdown.exe /r /f /t'
-alias wcodep='cmd.exe /c code.cmd'
+alias reboot='winrun /C/Windows/System32/shutdown.exe /r /f /t'
+alias wcodep='winrun cmd.exe /c code.cmd'
 alias wcode='f_code(){ wcodep $(wslpath ""$@""); unset -f f_code; }; f_code'
-alias wopen='cmd.exe /C start'
-alias choco='choco.exe'
+alias wopen='winrun cmd.exe /C start'
+alias choco='winrun choco.exe'
 alias open='wsl-open'
 
 alias xccf='xclip-copyfile' #copy file to clipboard
@@ -31,8 +31,8 @@ alias catc='highlight'
 
 alias be='bundle exec'
 
-alias tk='taskkill.exe'
-alias tki='taskkill.exe /im'
+alias tk='winrun taskkill.exe'
+alias tki='winrun taskkill.exe /im'
 
 #just for fun :D
 alias please='sudo'
@@ -41,7 +41,7 @@ alias canadiansudo='echo "please"'
 alias pikaur='HOME=/home/alia5 pikaur'
 
 
-export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
 eval $(thefuck --alias)
@@ -172,3 +172,4 @@ setopt share_history          # share command history data
 setopt no_hist_verify
 
 
+source /usr/share/nvm/init-nvm.sh

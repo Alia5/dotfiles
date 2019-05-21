@@ -21,3 +21,5 @@
 !/.rvm/gemsets/
 /.rvm/gemsets/*
 !/.rvm/gemsets/global.gems
+!winrun.sh
+

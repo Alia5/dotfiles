@@ -90,3 +90,4 @@ source "$HOME/.vfbashrc"
 
 #neofetch
 screenfetch
+source /usr/share/nvm/init-nvm.sh
