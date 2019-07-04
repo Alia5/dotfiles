@@ -13,6 +13,8 @@ alias wopen='winrun cmd.exe /C start'
 alias choco='winrun choco.exe'
 alias open='wsl-open'
 
+alias cmd='cmd.exe'
+
 alias xccf='xclip-copyfile' #copy file to clipboard
 
 alias gh='history | grep '
@@ -173,3 +175,4 @@ setopt no_hist_verify
 
 
 source /usr/share/nvm/init-nvm.sh
+

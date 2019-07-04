@@ -84,10 +84,7 @@ export EDITOR=vim
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-#vuframe
-source "$HOME/.vfbashrc"
-#\vuframe
-
 #neofetch
 screenfetch
 source /usr/share/nvm/init-nvm.sh
+export NODE_ENV="default_PERE"
