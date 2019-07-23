@@ -10,7 +10,7 @@ alias reboot='winrun /C/Windows/System32/shutdown.exe /r /f /t'
 alias wcodep='winrun cmd.exe /c code.cmd'
 alias wcode='f_code(){ wcodep $(wslpath ""$@""); unset -f f_code; }; f_code'
 alias wopen='winrun cmd.exe /C start'
-alias choco='winrun choco.exe'
+alias choco='cmd.exe /C choco.exe'
 alias open='wsl-open'
 
 alias cmd='cmd.exe'
@@ -46,6 +46,8 @@ alias pikaur='HOME=/home/alia5 pikaur'
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
+export PATH="node_modules/.bin:$PATH"
+
 eval $(thefuck --alias)
 
 #export PROMPT="$(git-radar --zsh --fetch)\$ "
@@ -58,8 +60,8 @@ export DISPLAY=:0.0
 export LIBGL_ALWAYS_INDIRECT=1
 export $(dbus-launch)
 export PULSE_SERVER=tcp:localhost
-#export QT_SCALE_FACTOR=1.5
-#export GDK_SCALE=1.5
+export QT_SCALE_FACTOR=1.5
+export GDK_SCALE=1.5
 
 export EDITOR=vim
 
