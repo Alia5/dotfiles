@@ -6,7 +6,7 @@ alias lla='ls -Al'
 alias lal='ls -Al'
 alias la='ls -A'
 alias grep='grep --color=auto'
-alias reboot='winrun /C/Windows/System32/shutdown.exe /r /f /t'
+alias reboot='/C/Windows/System32/shutdown.exe /r /f /t'
 alias wcodep='winrun cmd.exe /c code.cmd'
 alias wcode='f_code(){ wcodep $(wslpath ""$@""); unset -f f_code; }; f_code'
 alias wopen='winrun cmd.exe /C start'
@@ -46,7 +46,6 @@ alias pikaur='HOME=/home/alia5 pikaur'
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
-export PATH="node_modules/.bin:$PATH"
 
 eval $(thefuck --alias)
 
@@ -178,3 +177,4 @@ setopt no_hist_verify
 
 source /usr/share/nvm/init-nvm.sh
 
+export PATH="node_modules/.bin:$PATH"
