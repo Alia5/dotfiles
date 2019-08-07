@@ -93,7 +93,8 @@ bindkey '^x^e' edit-command-line
 # Vi style:
 bindkey -M vicmd v edit-command-line
 
-zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+#zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+zstyle ':completion:*' menu select
 autoload -Uz compinit
 compinit
 
