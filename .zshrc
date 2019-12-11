@@ -158,6 +158,10 @@ source  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
 #neofetch 
 screenfetch -c 9,7
 
