@@ -36,6 +36,8 @@ alias be='bundle exec'
 alias tk='winrun taskkill.exe'
 alias tki='winrun taskkill.exe /im'
 
+
+
 #just for fun :D
 alias please='sudo'
 alias canadiansudo='echo "please"'
@@ -150,7 +152,7 @@ POWERLEVEL9K_SHORTEN_STRATEGY="none"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon time user rvm dir root_indicator)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time history vcs)
 
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+source /usr/share/zsh-theme-powerlevel10k/powerlevel9k.zsh-theme
 
 
 source  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
