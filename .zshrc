@@ -80,6 +80,7 @@ export EDITOR=vim
 eval "$(dircolors)"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
+setopt auto_cd autopushd
 
 bindkey -e
 bindkey "^[[1;5C" forward-word
@@ -100,6 +101,23 @@ zstyle ':completion:*' menu select
 autoload -Uz compinit
 compinit
 
+cd () {
+    if [[ "x$*" = "x..." ]]
+    then
+            cd ../..
+    elif [[ "x$*" = "x...." ]]
+    then
+            cd ../../..
+    elif [[ "x$*" = "x....." ]]
+    then
+        cd ../../..
+    elif [[ "x$*" = "x......" ]]
+    then
+            cd ../../../..
+    else
+            builtin cd "$@"
+    fi
+}
 
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh         
