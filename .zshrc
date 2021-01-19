@@ -122,6 +122,9 @@ cd () {
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh         
 
+eval "$(zoxide init zsh)"
+
+
 #powerline-daemon -q 
 #. /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
