@@ -67,8 +67,9 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 setopt auto_cd autopushd
 
 bindkey -e
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word 
+bindkey '^[[1;9C' forward-word
+bindkey '^[[1;9D' backward-word
+
 
 # enable Ctrl-x-e to edit command line ---------------------
 
@@ -112,9 +113,9 @@ eval "$(zoxide init zsh)"
 #powerline-daemon -q 
 #. /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
-POWERLEVEL10K_MODE='nerdfont-complete'
+POWERLEVEL9K_MODE='nerdfont-complete'
 
-POWERLEVEL10K_TIME_BACKGROUND="grey35"
+POWERLEVEL9K_TIME_BACKGROUND="grey35"
 POWERLEVEL9K_TIME_FOREGROUND="white"
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="grey35"
 POWERLEVEL9K_DIR_HOME_BACKGROUND="grey35"
@@ -154,8 +155,8 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=5
 POWERLEVEL9K_SHORTEN_STRATEGY="none"
 
 
-POWERLEVEL10K_LEFT_PROMPT_ELEMENTS=(os_icon time user rvm dir root_indicator)
-POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time history vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon time user rvm dir root_indicator)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time history vcs)
 
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -184,8 +185,7 @@ setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
 setopt no_hist_verify
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+source /usr/local/opt/nvm/nvm.sh
 
 export PATH="node_modules/.bin:$PATH"
 
