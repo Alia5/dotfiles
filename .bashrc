@@ -88,3 +88,5 @@ export PATH="$PATH:$HOME/.rvm/bin"
 screenfetch
 source /usr/share/nvm/init-nvm.sh
 export NODE_ENV="default_PERE"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

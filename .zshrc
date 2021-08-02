@@ -1,12 +1,4 @@
 
-# FUCK WSL
-lim=`ulimit -n`
-if [ $lim -lt 8000 ]
-then
-	sudo prlimit -p "$$" --nofile=65000:65000
-	exec zsh
-	exit
-fi
 
 unset PS1
 
@@ -16,14 +8,7 @@ alias lla='ls -Al'
 alias lal='ls -Al'
 alias la='ls -A'
 alias grep='grep --color=auto'
-alias reboot='/C/Windows/System32/shutdown.exe /r /f /t'
-alias wcodep='winrun cmd.exe /c code.cmd'
-alias wcode='f_code(){ wcodep $(wslpath ""$@""); unset -f f_code; }; f_code'
-alias wopen='winrun cmd.exe /C start'
-alias choco='cmd.exe /C choco.exe'
-alias open='wsl-open'
 
-alias cmd='cmd.exe'
 
 alias xccf='xclip-copyfile' #copy file to clipboard
 
@@ -37,14 +22,11 @@ alias gds='git diff --staged'
 alias gl='git log --all --decorate --oneline --graph'
 alias gaa='git add -A'
 
-alias pacman='sudo pacman --color=auto'
 
 alias catc='highlight'
 
 alias be='bundle exec'
 
-alias tk='winrun taskkill.exe'
-alias tki='winrun taskkill.exe /im'
 
 
 
@@ -52,7 +34,6 @@ alias tki='winrun taskkill.exe /im'
 alias please='sudo'
 alias canadiansudo='echo "please"'
 
-alias pikaur='HOME=/home/alia5 pikaur'
 
 
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"
@@ -66,13 +47,6 @@ eval $(thefuck --alias)
 
 source $(dirname $(gem which colorls))/tab_complete.sh
 
-export XDG_CONFIG_HOME=~/.config
-#export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
-export LIBGL_ALWAYS_INDIRECT=1
-export $(dbus-launch)
-#export PULSE_SERVER=tcp:localhost
-export QT_SCALE_FACTOR=1.5
-export GDK_SCALE=1.5
 
 export EDITOR=vim
 
@@ -87,7 +61,7 @@ export EDITOR=vim
             #fi
           fi
 
-eval "$(dircolors)"
+eval "$(gdircolors)"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 setopt auto_cd autopushd
@@ -130,7 +104,7 @@ cd () {
 }
 
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh         
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh         
 
 eval "$(zoxide init zsh)"
 
@@ -138,9 +112,9 @@ eval "$(zoxide init zsh)"
 #powerline-daemon -q 
 #. /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
-POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL10K_MODE='nerdfont-complete'
 
-POWERLEVEL9K_TIME_BACKGROUND="grey35"
+POWERLEVEL10K_TIME_BACKGROUND="grey35"
 POWERLEVEL9K_TIME_FOREGROUND="white"
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="grey35"
 POWERLEVEL9K_DIR_HOME_BACKGROUND="grey35"
@@ -180,23 +154,20 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=5
 POWERLEVEL9K_SHORTEN_STRATEGY="none"
 
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon time user rvm dir root_indicator)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time history vcs)
+POWERLEVEL10K_LEFT_PROMPT_ELEMENTS=(os_icon time user rvm dir root_indicator)
+POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time history vcs)
 
-source /usr/share/zsh-theme-powerlevel10k/powerlevel9k.zsh-theme
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 
-source  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source  /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-
-#neofetch 
-screenfetch -c 9,7
+neofetch 
+#screenfetch -c 9,7
 
 ## History file configuration
 HISTFILE="$HOME/.zsh_history"
@@ -213,7 +184,9 @@ setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
 setopt no_hist_verify
 
-
-source /usr/share/nvm/init-nvm.sh
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 export PATH="node_modules/.bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
