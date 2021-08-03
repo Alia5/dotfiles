@@ -165,7 +165,7 @@ source  /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$PATH:$HOME/.rvm/bin"
 
 
-neofetch 
+neofetch --ascii_colors 9 9 9 9 9 9 9 9 --colors 9 9 9 9 
 #screenfetch -c 9,7
 
 ## History file configuration
