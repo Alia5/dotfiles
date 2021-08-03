@@ -34,8 +34,7 @@ alias be='bundle exec'
 alias please='sudo'
 alias canadiansudo='echo "please"'
 
-
-
+export PATH="/Users/peter.repukat/Library/Python/3.9/bin:$PATH"
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
@@ -67,9 +66,8 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 setopt auto_cd autopushd
 
 bindkey -e
-bindkey '^[[1;9C' forward-word
-bindkey '^[[1;9D' backward-word
-
+bindkey "\e\e[D" backward-word
+bindkey "\e\e[C" forward-word
 
 # enable Ctrl-x-e to edit command line ---------------------
 
@@ -187,6 +185,6 @@ setopt no_hist_verify
 
 source /usr/local/opt/nvm/nvm.sh
 
-export PATH="node_modules/.bin:$PATH"
+export PATH="/usr/local/bin:node_modules/.bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
