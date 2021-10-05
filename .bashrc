@@ -61,7 +61,6 @@ eval $(thefuck --alias)
 source $(dirname $(gem which colorls))/tab_complete.sh
 
 export XDG_CONFIG_HOME=~/.config
-export DISPLAY=:0.0
 export LIBGL_ALWAYS_INDIRECT=1
 export $(dbus-launch)
 #export QT_SCALE_FACTOR=1.5
@@ -88,3 +87,4 @@ export PATH="$PATH:$HOME/.rvm/bin"
 screenfetch
 source /usr/share/nvm/init-nvm.sh
 export NODE_ENV="default_PERE"
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
