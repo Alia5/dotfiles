@@ -10,7 +10,8 @@ fi
 
 unset PS1
 
-alias ls='colorls --gs'
+alias lsgit='colorls --gs'
+alias ls='lsd'
 alias ll='ls -l'
 alias lla='ls -Al'
 alias lal='ls -Al'
@@ -57,6 +58,7 @@ alias pikaur='HOME=/home/alia5 pikaur'
 
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+
 
 
 eval $(thefuck --alias)
@@ -187,6 +189,7 @@ source  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 
 source /usr/share/fzf/key-bindings.zsh
