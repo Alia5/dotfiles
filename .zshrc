@@ -1,12 +1,12 @@
 
 # FUCK WSL
-lim=`ulimit -n`
-if [ $lim -lt 8000 ]
-then
-	sudo prlimit -p "$$" --nofile=65000:65000
-	exec zsh
-	exit
-fi
+#lim=`ulimit -n`
+#if [ $lim -lt 8000 ]
+#then
+#	sudo prlimit -p "$$" --nofile=65000:65000
+#	exec zsh
+#	exit
+#fi
 
 unset PS1
 
