@@ -88,3 +88,5 @@ screenfetch
 source /usr/share/nvm/init-nvm.sh
 export NODE_ENV="default_PERE"
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+
+[[ -s "/home/alia5/.gvm/scripts/gvm" ]] && source "/home/alia5/.gvm/scripts/gvm"
