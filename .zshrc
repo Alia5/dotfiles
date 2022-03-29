@@ -213,6 +213,37 @@ setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
 setopt no_hist_verify
 
+# obviate file extension typing for windoze executables
+command_not_found_handler()
+{
+   cmd=$1
+   shift
+   args=( "$@" )
+
+   saveIFS="$IFS"
+   IFS=:
+   for dir in ${(@s/:/)PATH}; do
+      for executable in "$dir/$cmd.exe" "$dir/$cmd.com" "$dir/$cmd.bat"; do
+         if [ -x $executable ]; then
+            IFS="$saveIFS"
+            "$executable" "${args[@]}"
+            return
+         fi
+      done
+   done
+
+   IFS="$saveIFS"
+   if [ -x /usr/lib/command-not-found ]; then
+      /usr/lib/command-not-found -- "$cmd" "${args[@]}"
+      return $?
+   elif [ -x /usr/share/command-not-found/command-not-found ]; then
+      /usr/share/command-not-found/command-not-found -- "$1" "${args[@]}"
+      return $?
+   else
+      printf "%s: command not found\n" "$cmd" >&2
+      return 127
+   fi
+}
 
 # node stuff
 source /usr/share/nvm/init-nvm.sh
