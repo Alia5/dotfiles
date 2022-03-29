@@ -70,7 +70,7 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 
 #export XDG_CONFIG_HOME=~/.config
 #export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
-export $(dbus-launch)
+#export $(dbus-launch)
 #export PULSE_SERVER=tcp:localhost
 
 export EDITOR=vim
