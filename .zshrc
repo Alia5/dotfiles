@@ -26,6 +26,8 @@ alias open='wsl-open'
 
 alias cmd='cmd.exe'
 
+alias clears="clear && screenfetch -c 9,7"
+
 alias xccf='xclip-copyfile' #copy file to clipboard
 
 alias gh='history | grep '
