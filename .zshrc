@@ -275,3 +275,4 @@ load-nvmrc
 
 # go stuff
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+export PATH=$PATH:~/go/bin
