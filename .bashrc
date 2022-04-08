@@ -5,7 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-
 alias ls='colorls --gs'
 alias ll='ls -l'
 alias lla='ls -Al'
@@ -25,12 +24,10 @@ alias xccf='xclip-copyfile' #copy file to clipboard
 alias gh='history | grep '
 alias lsg='ls | grep'
 
-
 alias gs='git status'
 alias gd='git diff'
 alias gds='git diff --staged'
 alias gl='git log --all --decorate --oneline --graph'
-
 
 alias pacman='sudo pacman --color=auto'
 
@@ -57,7 +54,6 @@ export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
 eval $(thefuck --alias)
 
-
 source $(dirname $(gem which colorls))/tab_complete.sh
 
 export XDG_CONFIG_HOME=~/.config
@@ -67,7 +63,6 @@ export $(dbus-launch)
 #export GDK_SCALE=1.5
 
 export EDITOR=vim
-
 
           # Adding wsl-open as a browser for Bash for Windows
           if [[ $(uname -r) == *Microsoft ]]; then
@@ -90,3 +85,6 @@ export NODE_ENV="default_PERE"
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 
 [[ -s "/home/alia5/.gvm/scripts/gvm" ]] && source "/home/alia5/.gvm/scripts/gvm"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
