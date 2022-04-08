@@ -33,7 +33,6 @@ alias xccf='xclip-copyfile' #copy file to clipboard
 alias gh='history | grep '
 alias lsg='ls | grep'
 
-
 alias gs='git status'
 alias gd='git diff'
 alias gds='git diff --staged'
@@ -49,24 +48,20 @@ alias be='bundle exec'
 alias tk='winrun taskkill.exe'
 alias tki='winrun taskkill.exe /im'
 
-
-
 #just for fun :D
 alias please='sudo'
 alias canadiansudo='echo "please"'
 
 alias pikaur='HOME=/home/alia5 pikaur'
 
+alias winget='gsudo winget.exe'
 
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
-
-
 eval $(thefuck --alias)
 
 #export PROMPT="$(git-radar --zsh --fetch)\$ "
-
 
 source $(dirname $(gem which colorls))/tab_complete.sh
 
@@ -76,7 +71,6 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 #export PULSE_SERVER=tcp:localhost
 
 export EDITOR=vim
-
 
           # Adding wsl-open as a browser for Bash for Windows
           if [[ $(uname -r) == *Microsoft ]]; then
@@ -135,7 +129,6 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 eval "$(zoxide init zsh)"
 
-
 #powerline-daemon -q 
 #. /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
@@ -180,12 +173,10 @@ POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='178'
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=5
 POWERLEVEL9K_SHORTEN_STRATEGY="none"
 
-
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon time user rvm dir root_indicator)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time history vcs)
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel9k.zsh-theme
-
 
 source  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
