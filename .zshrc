@@ -41,8 +41,6 @@ alias gaa='git add -A'
 
 alias pacman='sudo pacman --color=auto'
 
-alias catc='highlight'
-
 alias be='bundle exec'
 
 alias tk='winrun taskkill.exe'
@@ -63,7 +61,7 @@ eval $(thefuck --alias)
 
 #export PROMPT="$(git-radar --zsh --fetch)\$ "
 
-source $(dirname $(gem which colorls))/tab_complete.sh
+#source $(dirname $(gem which colorls))/tab_complete.sh
 
 #export XDG_CONFIG_HOME=~/.config
 #export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
@@ -186,8 +184,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-#neofetch 
-screenfetch -c 9,7
+neofetch --colors 160 124 124 124 124 7 --ascii_colors 124 160
+#screenfetch -c 9,7
 
 ## History file configuration
 HISTFILE="$HOME/.zsh_history"
