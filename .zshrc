@@ -184,7 +184,13 @@ export PATH="$PATH:$HOME/.rvm/bin"
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-neofetch --colors 160 124 124 124 124 7 --ascii_colors 124 160
+
+if [[ "$HOST" == *"steamdeck"* ]]; then
+  neofetch --ascii_distro SteamOS
+else
+  neofetch --colors 160 124 124 124 124 7 --ascii_colors 124 160
+fi
+
 #screenfetch -c 9,7
 
 ## History file configuration
