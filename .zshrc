@@ -52,7 +52,9 @@ alias canadiansudo='echo "please"'
 
 alias pikaur='HOME=/home/alia5 pikaur'
 
-alias winget='gsudo winget.exe'
+if [[ $WSLENV ]]; then
+	alias winget='gsudo winget.exe'
+fi
 
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
@@ -71,9 +73,8 @@ eval $(thefuck --alias)
 export EDITOR=vim
 
           # Adding wsl-open as a browser for Bash for Windows
-          if [[ $(uname -r) == *Microsoft ]]; then
             #if [[ -z  ]]; then
-		    
+	if [[ $WSLENV ]]; then	    
               export BROWSER=wsl-open
             #else
             #  export BROWSER=:wsl-open
@@ -208,6 +209,7 @@ setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
 setopt no_hist_verify
 
+if [[ $WSLENV ]]; then
 # obviate file extension typing for windoze executables
 command_not_found_handler()
 {
@@ -239,6 +241,7 @@ command_not_found_handler()
       return 127
    fi
 }
+fi
 
 # node stuff
 source /usr/share/nvm/init-nvm.sh
