@@ -269,6 +269,8 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
+export PATH=~/.local/bin:$PATH
+
 # go stuff
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 export PATH=$PATH:~/go/bin
