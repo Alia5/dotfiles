@@ -17,15 +17,17 @@ alias lla='ls -Al'
 alias lal='ls -Al'
 alias la='ls -A'
 alias grep='grep --color=auto'
-alias reboot='/C/Windows/System32/shutdown.exe /r /f /t'
-alias wcodep='winrun cmd.exe /c code.cmd'
-alias wcode='f_code(){ wcodep $(wslpath ""$@""); unset -f f_code; }; f_code'
-alias wopen='winrun cmd.exe /C start'
-alias choco='cmd.exe /C choco.exe'
-alias open='wsl-open'
 
-alias cmd='cmd.exe'
+if [[ $WSLENV ]]; then
+	alias reboot='/C/Windows/System32/shutdown.exe /r /f /t'
+	alias wcodep='winrun cmd.exe /c code.cmd'
+	alias wcode='f_code(){ wcodep $(wslpath ""$@""); unset -f f_code; }; f_code'
+	alias wopen='winrun cmd.exe /C start'
+	alias choco='cmd.exe /C choco.exe'
+	alias open='wsl-open'
 
+	alias cmd='cmd.exe'
+fi
 alias clears="clear && screenfetch -c 9,7"
 
 alias xccf='xclip-copyfile' #copy file to clipboard
@@ -43,8 +45,11 @@ alias pacman='sudo pacman --color=auto'
 
 alias be='bundle exec'
 
-alias tk='winrun taskkill.exe'
-alias tki='winrun taskkill.exe /im'
+
+if [[ $WSLENV ]]; then
+	alias tk='winrun taskkill.exe'
+	alias tki='winrun taskkill.exe /im'
+fi
 
 #just for fun :D
 alias please='sudo'
@@ -209,8 +214,8 @@ setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
 setopt no_hist_verify
 
-if [[ $WSLENV ]]; then
 # obviate file extension typing for windoze executables
+if [[ $WSLENV ]]; then
 command_not_found_handler()
 {
    cmd=$1
