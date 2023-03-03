@@ -192,6 +192,15 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
 
+# tmux rename ssh windows
+ssh() {
+  tmux rename-window "ssh $*"
+  command ssh "$@"
+  tmux set automatic-rename on
+}
+
+
+
 if [[ "$HOST" == *"steamdeck"* ]]; then
   neofetch --ascii_distro SteamOS
 else
