@@ -27,6 +27,8 @@ if [[ $WSLENV ]]; then
 	alias open='wsl-open'
 
 	alias cmd='cmd.exe'
+else
+	alias open='xdg-open'
 fi
 alias clears="clear && screenfetch -c 9,7"
 
