@@ -8,6 +8,10 @@
 #	exit
 #fi
 
+if [[ $WSLGIT ]]; then
+  exit 0
+fi
+
 unset PS1
 
 alias lsgit='colorls --gs'
