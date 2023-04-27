@@ -3,6 +3,10 @@
 #
 
 # If not running interactively, don't do anything
+if [[ $WSLGIT ]]; then
+ return
+fi
+
 [[ $- != *i* ]] && return
 
 alias ls='colorls --gs'
