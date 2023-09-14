@@ -47,6 +47,7 @@ alias gds='git diff --staged'
 alias gl='git log --all --decorate --oneline --graph'
 alias glr='git log --oneline --graph --decorate $(git rev-list -g --all)' 
 alias gaa='git add -A'
+alias gp='git pull --rebase --autostash'
 
 alias pacman='sudo pacman --color=auto'
 
