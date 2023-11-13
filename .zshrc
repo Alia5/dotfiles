@@ -38,7 +38,7 @@ alias clears="clear && screenfetch -c 9,7"
 
 alias xccf='xclip-copyfile' #copy file to clipboard
 
-alias gh='history | grep '
+alias grh='history | grep '
 alias lsg='ls | grep'
 
 alias gs='git status'
@@ -313,3 +313,9 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+# bun completions
+[ -s "/home/alia5/.bun/_bun" ] && source "/home/alia5/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
