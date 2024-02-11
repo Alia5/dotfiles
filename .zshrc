@@ -53,6 +53,8 @@ alias pacman='sudo pacman --color=auto'
 
 alias be='bundle exec'
 
+alias mpv-drc='mpv --af="acompressor=ratio=4,loudnorm"'
+
 
 if [[ $WSLENV ]]; then
     alias tk='winrun taskkill.exe'
