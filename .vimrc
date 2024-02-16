@@ -1,4 +1,4 @@
-source /usr/share/vim/vim90/defaults.vim
+source /usr/share/vim/vim91/defaults.vim
 
 let g:powerline_pycmd="py3"
 set rtp+=/usr/share/powerline/bindings/vim
