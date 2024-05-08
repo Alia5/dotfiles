@@ -28,9 +28,9 @@ if [[ $WSLENV ]]; then
     alias wcode='f_code(){ wcodep $(wslpath ""$@""); unset -f f_code; }; f_code'
     alias wopen='winrun cmd.exe /C start'
     alias choco='cmd.exe /C choco.exe'
-    alias open='wsl-open'
     
     alias cmd='cmd.exe'
+    alias open='xdg-open'
 else
     alias open='xdg-open'
 fi
@@ -88,7 +88,7 @@ export EDITOR=vim
 # Adding wsl-open as a browser for Bash for Windows
 #if [[ -z  ]]; then
 if [[ $WSLENV ]]; then
-    export BROWSER=wsl-open
+    #export BROWSER=wsl-open
     #else
     #  export BROWSER=:wsl-open
     #fi
