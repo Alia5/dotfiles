@@ -23,4 +23,5 @@
 /.rvm/gemsets/*
 !/.rvm/gemsets/global.gems
 !winrun.sh
+!windows-terminal-zsh-integration
 

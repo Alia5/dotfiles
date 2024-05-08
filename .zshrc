@@ -321,5 +321,7 @@ esac
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+source ~/windows-terminal-zsh-integration/windows-terminal-zsh-integration.plugin.zsh
+
 # copilot
 eval "$(gh copilot alias -- zsh)"
