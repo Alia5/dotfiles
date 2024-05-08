@@ -9,7 +9,7 @@
 #fi
 
 if [[ $WSLGIT ]]; then
-  exit 0
+    exit 0
 fi
 
 unset PS1
@@ -23,16 +23,16 @@ alias la='ls -A'
 alias grep='grep --color=auto'
 
 if [[ $WSLENV ]]; then
-	alias reboot='/C/Windows/System32/shutdown.exe /r /f /t'
-	alias wcodep='winrun cmd.exe /c code.cmd'
-	alias wcode='f_code(){ wcodep $(wslpath ""$@""); unset -f f_code; }; f_code'
-	alias wopen='winrun cmd.exe /C start'
-	alias choco='cmd.exe /C choco.exe'
-	alias open='wsl-open'
-
-	alias cmd='cmd.exe'
+    alias reboot='/C/Windows/System32/shutdown.exe /r /f /t'
+    alias wcodep='winrun cmd.exe /c code.cmd'
+    alias wcode='f_code(){ wcodep $(wslpath ""$@""); unset -f f_code; }; f_code'
+    alias wopen='winrun cmd.exe /C start'
+    alias choco='cmd.exe /C choco.exe'
+    alias open='wsl-open'
+    
+    alias cmd='cmd.exe'
 else
-	alias open='xdg-open'
+    alias open='xdg-open'
 fi
 alias clears="clear && screenfetch -c 9,7"
 
@@ -45,7 +45,7 @@ alias gs='git status'
 alias gd='git diff'
 alias gds='git diff --staged'
 alias gl='git log --all --decorate --oneline --graph'
-alias glr='git log --oneline --graph --decorate $(git rev-list -g --all)' 
+alias glr='git log --oneline --graph --decorate $(git rev-list -g --all)'
 alias gaa='git add -A'
 alias gp='git pull --rebase --autostash'
 
@@ -55,8 +55,8 @@ alias be='bundle exec'
 
 
 if [[ $WSLENV ]]; then
-	alias tk='winrun taskkill.exe'
-	alias tki='winrun taskkill.exe /im'
+    alias tk='winrun taskkill.exe'
+    alias tki='winrun taskkill.exe /im'
 fi
 
 #just for fun :D
@@ -66,7 +66,7 @@ alias canadiansudo='echo "please"'
 alias pikaur='HOME=/home/alia5 pikaur'
 
 if [[ $WSLENV ]]; then
-	alias winget='gsudo winget.exe'
+    alias winget='gsudo winget.exe'
 fi
 
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"
@@ -85,14 +85,14 @@ eval $(thefuck --alias)
 
 export EDITOR=vim
 
-          # Adding wsl-open as a browser for Bash for Windows
-            #if [[ -z  ]]; then
-	if [[ $WSLENV ]]; then	    
-              export BROWSER=wsl-open
-            #else
-            #  export BROWSER=:wsl-open
-            #fi
-          fi
+# Adding wsl-open as a browser for Bash for Windows
+#if [[ -z  ]]; then
+if [[ $WSLENV ]]; then
+    export BROWSER=wsl-open
+    #else
+    #  export BROWSER=:wsl-open
+    #fi
+fi
 
 eval "$(dircolors)"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -101,7 +101,7 @@ setopt auto_cd autopushd
 
 bindkey -e
 bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word 
+bindkey "^[[1;5D" backward-word
 
 # enable Ctrl-x-e to edit command line ---------------------
 
@@ -121,28 +121,29 @@ compinit
 cd () {
     if [[ "x$*" = "x..." ]]
     then
-            cd ../..
+        cd ../..
     elif [[ "x$*" = "x...." ]]
     then
-            cd ../../..
+        cd ../../..
     elif [[ "x$*" = "x....." ]]
     then
         cd ../../..
     elif [[ "x$*" = "x......" ]]
     then
-            cd ../../../..
+        cd ../../../..
     else
-            builtin cd "$@"
+        builtin cd "$@"
     fi
 }
 
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh         
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 eval "$(zoxide init zsh)"
 
-#powerline-daemon -q 
+#powerline-daemon -q
 #. /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
 
 POWERLEVEL9K_MODE='nerdfont-complete'
 
@@ -201,19 +202,19 @@ source /usr/share/fzf/completion.zsh
 
 # tmux rename ssh windows
 if [[ $TMUX ]]; then
-  ssh() {
-    tmux rename-window "ssh $*"
-    command ssh "$@"
-    tmux set automatic-rename on
-  }
+    ssh() {
+        tmux rename-window "ssh $*"
+        command ssh "$@"
+        tmux set automatic-rename on
+    }
 fi
 
 
 
 if [[ "$HOST" == *"steamdeck"* ]]; then
-  neofetch --ascii_distro SteamOS
+    neofetch --ascii_distro SteamOS
 else
-  neofetch --colors 160 124 124 124 124 7 --ascii_colors 124 160
+    neofetch --colors 160 124 124 124 124 7 --ascii_colors 124 160
 fi
 
 #screenfetch -c 9,7
@@ -235,36 +236,36 @@ setopt no_hist_verify
 
 # obviate file extension typing for windoze executables
 if [[ $WSLENV ]]; then
-command_not_found_handler()
-{
-   cmd=$1
-   shift
-   args=( "$@" )
-
-   saveIFS="$IFS"
-   IFS=:
-   for dir in ${(@s/:/)PATH}; do
-      for executable in "$dir/$cmd.exe" "$dir/$cmd.com" "$dir/$cmd.bat"; do
-         if [ -x $executable ]; then
-            IFS="$saveIFS"
-            "$executable" "${args[@]}"
-            return
-         fi
-      done
-   done
-
-   IFS="$saveIFS"
-   if [ -x /usr/lib/command-not-found ]; then
-      /usr/lib/command-not-found -- "$cmd" "${args[@]}"
-      return $?
-   elif [ -x /usr/share/command-not-found/command-not-found ]; then
-      /usr/share/command-not-found/command-not-found -- "$1" "${args[@]}"
-      return $?
-   else
-      printf "%s: command not found\n" "$cmd" >&2
-      return 127
-   fi
-}
+    command_not_found_handler()
+    {
+        cmd=$1
+        shift
+        args=( "$@" )
+        
+        saveIFS="$IFS"
+        IFS=:
+        for dir in ${(@s/:/)PATH}; do
+            for executable in "$dir/$cmd.exe" "$dir/$cmd.com" "$dir/$cmd.bat"; do
+                if [ -x $executable ]; then
+                    IFS="$saveIFS"
+                    "$executable" "${args[@]}"
+                    return
+                fi
+            done
+        done
+        
+        IFS="$saveIFS"
+        if [ -x /usr/lib/command-not-found ]; then
+            /usr/lib/command-not-found -- "$cmd" "${args[@]}"
+            return $?
+            elif [ -x /usr/share/command-not-found/command-not-found ]; then
+            /usr/share/command-not-found/command-not-found -- "$1" "${args[@]}"
+            return $?
+        else
+            printf "%s: command not found\n" "$cmd" >&2
+            return 127
+        fi
+    }
 fi
 
 # node stuff
@@ -274,21 +275,21 @@ export PATH="node_modules/.bin:$PATH"
 # place this after nvm initialization!
 autoload -U add-zsh-hook
 load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
+    local node_version="$(nvm version)"
+    local nvmrc_path="$(nvm_find_nvmrc)"
+    
+    if [ -n "$nvmrc_path" ]; then
+        local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+        
+        if [ "$nvmrc_node_version" = "N/A" ]; then
+            nvm install
+            elif [ "$nvmrc_node_version" != "$node_version" ]; then
+            nvm use
+        fi
+        elif [ "$node_version" != "$(nvm version default)" ]; then
+        echo "Reverting to nvm default version"
+        nvm use default
     fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
@@ -309,8 +310,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # pnpm
 export PNPM_HOME="/home/alia5/.local/share/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 # bun completions
@@ -319,3 +320,6 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# copilot
+eval "$(gh copilot alias -- zsh)"
