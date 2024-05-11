@@ -34,7 +34,6 @@ if [[ $WSLENV ]]; then
 else
     alias open='xdg-open'
 fi
-alias clears="clear && screenfetch -c 9,7"
 
 alias xccf='xclip-copyfile' #copy file to clipboard
 
@@ -51,7 +50,6 @@ alias gp='git pull --rebase --autostash'
 
 alias pacman='sudo pacman --color=auto'
 
-alias be='bundle exec'
 
 alias mpv-drc='mpv --af="acompressor=ratio=4,loudnorm"'
 
@@ -76,25 +74,12 @@ export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
 eval $(thefuck --alias)
 
-#export PROMPT="$(git-radar --zsh --fetch)\$ "
-
-#source $(dirname $(gem which colorls))/tab_complete.sh
-
 #export XDG_CONFIG_HOME=~/.config
 #export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
 #export $(dbus-launch)
 #export PULSE_SERVER=tcp:localhost
 
 export EDITOR=vim
-
-# Adding wsl-open as a browser for Bash for Windows
-#if [[ -z  ]]; then
-if [[ $WSLENV ]]; then
-    #export BROWSER=wsl-open
-    #else
-    #  export BROWSER=:wsl-open
-    #fi
-fi
 
 eval "$(dircolors)"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -142,9 +127,6 @@ export ZSH_AUTOSUGGEST_USE_ASYNC=1
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 eval "$(zoxide init zsh)"
-
-#powerline-daemon -q
-#. /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 
 POWERLEVEL9K_MODE='nerdfont-complete'
@@ -220,8 +202,6 @@ else
     #neofetch --colors 160 124 124 124 124 7 --ascii_colors 124 160
     fastfetch --logo-color-1 '38;5;160' --logo-color-2 '38;5;124' --color-keys '38;5;196' --color-title '38;5;160'
 fi
-
-#screenfetch -c 9,7
 
 ## History file configuration
 HISTFILE="$HOME/.zsh_history"
@@ -318,14 +298,10 @@ case ":$PATH:" in
     *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-# bun completions
-[ -s "/home/alia5/.bun/_bun" ] && source "/home/alia5/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-source ~/windows-terminal-zsh-integration/windows-terminal-zsh-integration.plugin.zsh
+if [[ $WSLENV ]]; then
+   source ~/windows-terminal-zsh-integration/windows-terminal-zsh-integration.plugin.zsh
+fi
 
 # copilot
 eval "$(gh copilot alias -- zsh)"
