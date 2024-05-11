@@ -214,9 +214,11 @@ fi
 
 
 if [[ "$HOST" == *"steamdeck"* ]]; then
-    neofetch --ascii_distro SteamOS
+    #ineofetch --ascii_distro SteamOS
+    fastfetch -l steamos --logo-color-1 '38;5;164' --color '38;5;165'
 else
-    neofetch --colors 160 124 124 124 124 7 --ascii_colors 124 160
+    #neofetch --colors 160 124 124 124 124 7 --ascii_colors 124 160
+    fastfetch --logo-color-1 '38;5;160' --logo-color-2 '38;5;124' --color-keys '38;5;196' --color-title '38;5;160'
 fi
 
 #screenfetch -c 9,7
