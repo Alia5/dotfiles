@@ -37,11 +37,7 @@ fi
 
 alias xccf='xclip-copyfile' #copy file to clipboard
 
-<<<<<<< Updated upstream
 alias grh='history | grep '
-=======
-#alias gh='history | grep '
->>>>>>> Stashed changes
 alias lsg='ls | grep'
 
 alias gs='git status'
