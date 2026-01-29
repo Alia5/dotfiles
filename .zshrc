@@ -74,11 +74,6 @@ export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
 eval $(thefuck --alias)
 
-#export XDG_CONFIG_HOME=~/.config
-#export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
-#export $(dbus-launch)
-#export PULSE_SERVER=tcp:localhost
-
 export EDITOR=vim
 
 eval "$(dircolors)"
@@ -176,9 +171,6 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_tim
 source /usr/share/zsh-theme-powerlevel10k/powerlevel9k.zsh-theme
 
 source  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
@@ -286,9 +278,6 @@ export PATH=~/.local/bin:$PATH
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 export PATH=$PATH:~/go/bin
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
@@ -307,5 +296,5 @@ if [[ $WSLENV ]]; then
    source ~/windows-terminal-zsh-integration/windows-terminal-zsh-integration.plugin.zsh
 fi
 
-# copilot
-eval "$(gh copilot alias -- zsh)"
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+
