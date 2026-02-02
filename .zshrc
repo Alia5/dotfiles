@@ -246,13 +246,14 @@ if [[ $WSLENV ]]; then
     }
 fi
 
-# node stuff
-source /usr/share/nvm/init-nvm.sh
+ennvm() {
+  # node stuff
+  source /usr/share/nvm/init-nvm.sh
 
-export PATH="node_modules/.bin:$PATH"
-# place this after nvm initialization!
-autoload -U add-zsh-hook
-load-nvmrc() {
+  export PATH="node_modules/.bin:$PATH"
+  # place this after nvm initialization!
+  autoload -U add-zsh-hook
+  load-nvmrc() {
     local node_version="$(nvm version)"
     local nvmrc_path="$(nvm_find_nvmrc)"
     
@@ -268,33 +269,32 @@ load-nvmrc() {
         echo "Reverting to nvm default version"
         nvm use default
     fi
+  }
 }
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
 
 export PATH=~/.local/bin:$PATH
 
 # go stuff
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-export PATH=$PATH:~/go/bin
 
 # tabtab source for packages
 # uninstall by removing these lines
-[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+#[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
 # pnpm
-export PNPM_HOME="/home/alia5/.local/share/pnpm"
-case ":$PATH:" in
-    *":$PNPM_HOME:"*) ;;
-    *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+#export PNPM_HOME="/home/alia5/.local/share/pnpm"
+#case ":$PATH:" in
+#    *":$PNPM_HOME:"*) ;;
+#    *) export PATH="$PNPM_HOME:$PATH" ;;
+#esac
 # pnpm end
 
 eval "$(direnv hook zsh)"
 
-if [[ $WSLENV ]]; then
-   source ~/windows-terminal-zsh-integration/windows-terminal-zsh-integration.plugin.zsh
-fi
+#if [[ $WSLENV ]]; then
+#   source ~/windows-terminal-zsh-integration/windows-terminal-zsh-integration.plugin.zsh
+#fi
 
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
+
+[[ -s "/home/alia5/.gvm/scripts/gvm" ]] && source "/home/alia5/.gvm/scripts/gvm"
