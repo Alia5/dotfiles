@@ -185,18 +185,6 @@ if [[ $TMUX ]]; then
     }
 fi
 
-
-
-if [[ "$HOST" == *"steamdeck"* ]]; then
-    #ineofetch --ascii_distro SteamOS
-    fastfetch -l steamos --logo-color-1 '38;5;164' --color '38;5;165'
-elif [[ "$HOST" == *"voron"* ]]; then
-    fastfetch -l raspi
-else
-    #neofetch --colors 160 124 124 124 124 7 --ascii_colors 124 160
-    fastfetch --logo-color-1 '38;5;160' --logo-color-2 '38;5;124' --color-keys '38;5;196' --color-title '38;5;160'
-fi
-
 ## History file configuration
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=50000
@@ -211,6 +199,16 @@ setopt hist_verify            # show command with history expansion to user befo
 setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
 setopt no_hist_verify
+
+if [[ "$HOST" == *"steamdeck"* ]]; then
+    #ineofetch --ascii_distro SteamOS
+    fastfetch -l steamos --logo-color-1 '38;5;164' --color '38;5;165'
+elif [[ "$HOST" == *"voron"* ]]; then
+    fastfetch -l raspi
+else
+    #neofetch --colors 160 124 124 124 124 7 --ascii_colors 124 160
+    fastfetch --logo-color-1 '38;5;160' --logo-color-2 '38;5;124' --color-keys '38;5;196' --color-title '38;5;160'
+fi
 
 # obviate file extension typing for windoze executables
 if [[ $WSLENV ]]; then
@@ -246,7 +244,6 @@ if [[ $WSLENV ]]; then
     }
 fi
 
-ennvm() {
   # node stuff
   source /usr/share/nvm/init-nvm.sh
 
@@ -270,7 +267,6 @@ ennvm() {
         nvm use default
     fi
   }
-}
 
 export PATH=~/.local/bin:$PATH
 
@@ -288,7 +284,7 @@ export PATH=~/.local/bin:$PATH
 #esac
 # pnpm end
 
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 #if [[ $WSLENV ]]; then
 #   source ~/windows-terminal-zsh-integration/windows-terminal-zsh-integration.plugin.zsh
