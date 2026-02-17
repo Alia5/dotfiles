@@ -69,10 +69,10 @@ if [[ $WSLENV ]]; then
     alias winget='gsudo winget.exe'
 fi
 
-export PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"
-export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+#export PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"
+#export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
-eval $(thefuck --alias)
+#eval $(thefuck --alias)
 
 export EDITOR=vim
 
@@ -121,7 +121,7 @@ cd () {
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-eval "$(zoxide init zsh)"
+#eval "$(zoxide init zsh)"
 
 
 POWERLEVEL9K_MODE='nerdfont-complete'
@@ -172,8 +172,8 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel9k.zsh-theme
 
 source  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+#source /usr/share/fzf/key-bindings.zsh
+#source /usr/share/fzf/completion.zsh
 
 
 # tmux rename ssh windows
