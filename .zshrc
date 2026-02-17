@@ -271,6 +271,7 @@ fi
 export PATH=~/.local/bin:$PATH
 
 # go stuff
+export PATH=~/go/bin/:$PATH
 
 # tabtab source for packages
 # uninstall by removing these lines
@@ -292,5 +293,3 @@ export PATH=~/.local/bin:$PATH
 
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
-
-[[ -s "/home/alia5/.gvm/scripts/gvm" ]] && source "/home/alia5/.gvm/scripts/gvm"
