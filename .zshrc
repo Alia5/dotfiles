@@ -25,7 +25,6 @@ alias grep='grep --color=auto'
 if [[ $WSLENV ]]; then
     alias reboot='/C/Windows/System32/shutdown.exe /r /f /t'
     alias wcodep='winrun cmd.exe /c code.cmd'
-    alias wcode='f_code(){ wcodep $(wslpath ""$@""); unset -f f_code; }; f_code'
     alias wopen='winrun cmd.exe /C start'
     alias choco='cmd.exe /C choco.exe'
     
@@ -291,5 +290,7 @@ export PATH=~/go/bin/:$PATH
 #   source ~/windows-terminal-zsh-integration/windows-terminal-zsh-integration.plugin.zsh
 #fi
 
-[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+# if [[ "$TERM_PROGRAM" == "vscode" ]]; then 
+#     source $(code --locate-shell-integration-path zsh)
+# fi
 
